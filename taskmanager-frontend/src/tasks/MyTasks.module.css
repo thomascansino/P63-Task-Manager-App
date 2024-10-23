@@ -1,0 +1,58 @@
+.tasks {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+.tasks:hover {
+    background-color: #7a7a7a;
+}
+.tasks:active {
+    background-color: #696969;
+}
+
+.modal {
+    pointer-events: all;
+    z-index: 1;
+}
+
+.modal, .overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+}
+
+.overlay {
+    background: rgba(49, 49, 49, 0.8);
+}
+
+.modal-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #F5F5F5;
+    padding: 2rem 1.5rem;
+    border-radius: 15px;
+}
+
+.input-container {
+    margin-bottom: 1rem;
+}
+
+.button {
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    background-color: #576675;
+    border-radius: 5px;
+    border: 0;
+    box-sizing: border-box;
+    padding: 0.25rem 0.75rem;
+}

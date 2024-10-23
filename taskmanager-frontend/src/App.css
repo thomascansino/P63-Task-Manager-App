@@ -1,0 +1,60 @@
+:root {
+    --primary-color: #E9AFA3;
+    --secondary-color: #AEC5EB;
+    --accent-color: #3A405A;
+    --text-color: #000000;
+    --background-color: #F9DAC8;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif; 
+    background-color: #001214;
+    color: #fff9e3;
+}
+
+.blocked {
+    pointer-events: none;
+}
+
+.calendar {
+    width: 25rem;
+    height: 25rem;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+.fc-daygrid-day-frame {
+    cursor: pointer;
+}
+.fc-daygrid-day-frame:hover {
+    background-color: #00707c;
+}
+.fc-daygrid-day-frame:active {
+    background-color: #005f69;
+}
+.fc .fc-daygrid-day.fc-day-today {
+    background-color: transparent;
+}
+.fc-today-button.fc-button.fc-button-primary {
+    display: none;
+}
+.custom-highlight {
+    background-color: #008291 !important;
+}
+
+.ri-add-box-line {
+    font-size: 25px;
+    cursor: pointer;
+}
+
+input {
+    font-family: 'Poppins', sans-serif;
+}
+

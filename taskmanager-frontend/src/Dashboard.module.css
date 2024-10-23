@@ -1,0 +1,12 @@
+.calendar-container {
+    margin-bottom: 1rem;
+}
+
+.logout {
+    display: flex;
+    justify-content: right;
+    cursor: pointer;
+}
+.logout:hover {
+    text-decoration: underline;
+}
