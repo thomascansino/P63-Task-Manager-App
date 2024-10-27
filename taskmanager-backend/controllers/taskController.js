@@ -43,6 +43,11 @@ const getTask = asyncHandler(async (req, res) => {
         throw new Error("This task doesn't exist!");
     };
 
+    if ( task.user_id.toString() !== req.user.id ) {
+        res.status(403);
+        throw new Error("User don't have permission to update other user tasks");
+    };
+
     res.status(200).json(task);
 });
 
@@ -50,6 +55,8 @@ const getTask = asyncHandler(async (req, res) => {
 //@route PUT /api/tasks/:id
 //@access private
 const updateTask = asyncHandler(async (req, res) => {
+    const { time, description } = req.body;
+    
     const task = await Task.findById(req.params.id);
     if ( !task ) {
         res.status(404);
@@ -59,6 +66,11 @@ const updateTask = asyncHandler(async (req, res) => {
     if ( task.user_id.toString() !== req.user.id ) {
         res.status(403);
         throw new Error("User doesn't have permission to update other user tasks");
+    };
+
+    if ( !time || !description ) {
+        res.status(400);
+        throw new Error(`A ${ !description && !time ? 'description and time' : !description ? 'description' : 'time' } is/are mandatory.`);
     };
 
     const updatedTask = await Task.findByIdAndUpdate(

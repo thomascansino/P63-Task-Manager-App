@@ -68,9 +68,9 @@ function MyTasks({
                 <div className={myTasksStyles.time}>{task.time}</div>
             </div>
             ))
-        .slice(
-            (currentPage - 1) * tasksPerPage,
-            currentPage * tasksPerPage
+        .slice( // slice(included index, excluded index) 
+            (currentPage - 1) * tasksPerPage, // e.g (2-1)*7 = 7
+            currentPage * tasksPerPage // e.g 2*7 = 14 --> slice(7, 14) --> array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14] --> page 2 will show no. 7 to no. 13 
         );
 
     return (

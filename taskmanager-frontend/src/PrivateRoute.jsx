@@ -16,7 +16,7 @@ function PrivateRoute() {
     useEffect(() => {
         const verifyToken = async () => {
             try {
-                const response = await axios.get('http://localhost:5001/api/users/current', config);
+                const response = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/users/current`, config);
                 if ( response ) {
                     setIsAuthenticated(true);
                     setUserData(response.data);

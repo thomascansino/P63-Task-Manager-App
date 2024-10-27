@@ -34,13 +34,18 @@ function Register() {
     const handleRegister = async (e) => {
         e.preventDefault();
 
+        if ( !username || !email || !password || !confirmPassword ) {
+            alert('All fields are mandatory');
+            return;
+        };
+
         if ( password !== confirmPassword ) {
             alert('Passwords do not match');
             return;
         };
 
         try {
-            const response = await axios.post('http://localhost:5001/api/users/register', { username, email, password, confirmPassword });
+            const response = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/users/register`, { username, email, password, confirmPassword });
             if ( response ) {
                 alert('Register successful');
                 navigate('/login');

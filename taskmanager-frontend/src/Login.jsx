@@ -25,8 +25,13 @@ function Login() {
     const handleLogin = async (e) => {
         e.preventDefault();
 
+        if ( !email || !password ) {
+            alert('All fields are mandatory');
+            return;
+        };
+
         try {
-            const response = await axios.post('http://localhost:5001/api/users/login', { email, password });
+            const response = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/users/login`, { email, password });
             if ( response ) {
                 localStorage.setItem('token', response.data.accessToken);
                 navigate('/dashboard');

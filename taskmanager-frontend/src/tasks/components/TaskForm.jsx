@@ -32,8 +32,13 @@ function TaskForm({ closeTaskForm, selectedDate }) {
     };
 
     const createTask = async () => {
+        if ( !time || !description ) {
+            alert('Please fill in the time/task fields.');
+            return;
+        };
+        
         try {
-            const response = await axios.post('http://localhost:5001/api/tasks', data, config);
+            const response = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/tasks`, data, config);
             console.log(response.data);
             closeTaskForm();
         } catch (err) {
@@ -43,12 +48,6 @@ function TaskForm({ closeTaskForm, selectedDate }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        if ( !time || !description ) {
-            alert('Please fill in the time/task fields.');
-            return;
-        };
-
         createTask();
     };
 

@@ -32,14 +32,13 @@ function TaskModal({ closeTaskModal, selectedTask }) {
     };
 
     const updateTask = async () => {
+        if ( !time || !description ) {
+            alert('Please fill in all fields');
+            return;
+        };
+
         try {
-            
-            if ( !time || !description ) {
-                alert('Please fill in all fields');
-                return;
-            };
-            
-            const response = await axios.put(`http://localhost:5001/api/tasks/${selectedTask._id}`, data, config);
+            const response = await axios.put(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/tasks/${selectedTask._id}`, data, config);
             console.log('Task updated:', response.data);
             closeTaskModal();
         } catch (err) {
@@ -49,7 +48,7 @@ function TaskModal({ closeTaskModal, selectedTask }) {
 
     const deleteTask = async () => {
         try {
-            const response = await axios.delete(`http://localhost:5001/api/tasks/${selectedTask._id}`, config);
+            const response = await axios.delete(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/tasks/${selectedTask._id}`, config);
             console.log('Task deleted:', response.data);
             closeTaskModal();
         } catch (err) {

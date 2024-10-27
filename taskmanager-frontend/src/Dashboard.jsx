@@ -27,7 +27,7 @@ function Dashboard() {
 
     const getTasks = async () => {
         try {
-            const response = await axios.get('http://localhost:5001/api/tasks', config);
+            const response = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/tasks`, config);
             setTasks(response.data);
             console.log('Get all tasks:', response.data);
         } catch (err) {
@@ -38,7 +38,7 @@ function Dashboard() {
 
     const getTask = async (taskId) => {
         try {
-            const response = await axios.get(`http://localhost:5001/api/tasks/${taskId}`, config);
+            const response = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/tasks/${taskId}`, config);
             setSelectedTask(response.data);
             openTaskModal();
             console.log('Get a task from ID:', response.data);
