@@ -4,7 +4,7 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import interactionPlugin from "@fullcalendar/interaction" 
 import './App.css'
 
-function MyCalendar({ setSelectedDate}) {
+function MyCalendar({ setSelectedDate }) {
     const [currentMonth, setCurrentMonth] = useState(new Date());
     const currentDateStr = new Date().toISOString().split('T')[0];
     const [highlightedDate, setHighlightedDate] = useState(currentDateStr);

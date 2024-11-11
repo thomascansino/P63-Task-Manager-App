@@ -17,7 +17,7 @@ function Dashboard() {
 
     useEffect(() => {
         getTasks();
-    }, [selectedDate, isTaskFormOpen, isTaskModalOpen]);
+    }, [selectedDate]);
 
     const config = {
         headers: {
@@ -56,6 +56,7 @@ function Dashboard() {
     const closeTaskForm = () => {
         setIsTaskFormOpen(false);
         document.body.classList.remove('blocked');
+        getTasks();
     };
 
     const openTaskModal = () => {
@@ -66,6 +67,7 @@ function Dashboard() {
     const closeTaskModal = () => {
         setIsTaskModalOpen(false);
         document.body.classList.remove('blocked');
+        getTasks();
     };
 
     const handleLogout = () => {

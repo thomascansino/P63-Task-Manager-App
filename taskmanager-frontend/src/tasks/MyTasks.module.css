@@ -1,3 +1,11 @@
+.tasks-list {
+    display: grid;
+    overflow-y: auto;
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 0.5rem;
+}
+
 .tasks {
     cursor: pointer;
     display: flex;
