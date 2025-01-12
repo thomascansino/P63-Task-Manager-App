@@ -76,7 +76,7 @@ function Dashboard() {
     };
     
     return (
-        <>
+        <div className='dashboard-container'>
             <div className={dashboardStyles.logout} onClick={handleLogout}>Logout</div>
             <div className={dashboardStyles['calendar-container']}>
                 <MyCalendar 
@@ -96,7 +96,7 @@ function Dashboard() {
                 selectedTask={selectedTask}
                 />
             </div>
-        </>
+        </div>
     )
 };
 

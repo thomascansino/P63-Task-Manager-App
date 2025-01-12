@@ -61,7 +61,7 @@ function TaskModal({ closeTaskModal, selectedTask }) {
             <div className={myTasksStyles.overlay} onClick={closeTaskModal}></div>
             <div className={myTasksStyles['modal-form']}>
 
-                <div>
+                <div className='modal-form-container'>
                     <div className={myTasksStyles['input-container']}>
                         <input type='text' placeholder='description' value={description} onChange={(e) => setDescription(e.target.value)}/>
                     </div>
@@ -87,7 +87,7 @@ function TaskModal({ closeTaskModal, selectedTask }) {
                         />
                     </div>
 
-                    <div>
+                    <div className='modal-form-buttons-container'>
                         <button className={myTasksStyles.button} onClick={updateTask}>Modify Task</button>
                         <button className={myTasksStyles.button} onClick={deleteTask}>Delete Task</button>
                     </div>

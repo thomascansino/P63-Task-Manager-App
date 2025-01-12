@@ -6,6 +6,10 @@
     --background-color: #F9DAC8;
 }
 
+a {
+    color: #fff9e3;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -16,8 +20,44 @@ body {
     justify-content: center;
     align-items: center;
     font-family: 'Poppins', sans-serif; 
-    background-color: #001214;
+    background-color: #1f2c37;
     color: #fff9e3;
+}
+
+.dashboard-container {
+    width: 100vw;
+    max-width: 600px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 767px) {
+    .dashboard-container {
+        padding-inline: 16px;
+    }
+    .calendar {
+        width: 100%;
+        height: 400px;
+    }
+}
+
+@media (max-width: 1023px) and (min-width: 768px) {
+    .dashboard-container {
+        padding-inline: 80px;
+    }
+    .calendar {
+        width: 100%;
+        height: 400px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .dashboard-container {
+        padding-inline: 128px;
+    }
+    .calendar {
+        width: 100%;
+        height: 400px;
+    }
 }
 
 .blocked {
@@ -25,8 +65,6 @@ body {
 }
 
 .calendar {
-    width: 25rem;
-    height: 25rem;
     font-size: 12px;
     box-sizing: border-box;
 }
@@ -46,7 +84,7 @@ body {
     display: none;
 }
 .custom-highlight {
-    background-color: #008291 !important;
+    background-color: #1a636b !important;
 }
 
 .ri-add-box-line {
@@ -58,3 +96,13 @@ input {
     font-family: 'Poppins', sans-serif;
 }
 
+.modal-form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-form-buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}

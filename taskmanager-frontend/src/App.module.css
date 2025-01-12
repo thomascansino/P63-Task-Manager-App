@@ -8,6 +8,12 @@
     left: 0;
 }
 
+.container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
 .main-container {
   background-color: hsla(0, 0%, 100%, .01);
   border: 2px solid hsla(0, 0%, 100%, .7);
@@ -17,7 +23,9 @@
   backdrop-filter: blur(16px) brightness(0.95);
   text-align: center;
   color: #ffffff;
+  max-width: 400px;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .title-container {

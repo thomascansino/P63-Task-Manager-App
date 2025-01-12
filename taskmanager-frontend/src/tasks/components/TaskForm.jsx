@@ -56,7 +56,7 @@ function TaskForm({ closeTaskForm, selectedDate }) {
             <div className={myTasksStyles.overlay} onClick={closeTaskForm}></div>
             <div className={myTasksStyles['modal-form']}>
             
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className='modal-form-container'>
                     <div className={myTasksStyles['input-container']}>
                         <input type='text' placeholder='Create new task' value={description} onChange={(e) => setDescription(e.target.value)}/>
                     </div>
@@ -82,7 +82,7 @@ function TaskForm({ closeTaskForm, selectedDate }) {
                         />
                     </div>
 
-                    <div>
+                    <div className='modal-form-buttons-container'>
                         <button className={myTasksStyles.button} type='submit'>Create Task</button>
                     </div>
                 </form>

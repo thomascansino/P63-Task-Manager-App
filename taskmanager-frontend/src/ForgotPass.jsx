@@ -14,7 +14,7 @@ function ForgotPass() {
         <>
             <img className={styles['login-bg']} src={background} alt='cool backdrop' />
             
-            <form>
+            <form className={styles['container']}>
                 <div className={styles['main-container']}>
 
                     <div className={styles['title-container']}>

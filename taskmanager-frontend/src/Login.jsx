@@ -34,7 +34,7 @@ function Login() {
             const response = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/users/login`, { email, password });
             if ( response ) {
                 localStorage.setItem('token', response.data.accessToken);
-                navigate('/dashboard');
+                navigate('/');
             };
         } catch (err) {
             console.error('Login failed:', err.response.data.message);
@@ -47,7 +47,7 @@ function Login() {
         <>
             <img className={styles['login-bg']} src={background} alt='cool backdrop' />
             
-            <form onSubmit={handleLogin}>
+            <form onSubmit={handleLogin} className={styles['container']}>
                 <div className={styles['main-container']}>
 
                     <div className={styles['title-container']}>
