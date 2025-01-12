@@ -23,7 +23,6 @@ function PrivateRoute() {
                 };
             } catch (err) {
                 setIsAuthenticated(false);
-                alert(err.response.data.message);
             };
         };
 
