@@ -34,7 +34,7 @@ function Login() {
             const response = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/users/login`, { email, password });
             if ( response ) {
                 localStorage.setItem('token', response.data.accessToken);
-                navigate('/');
+                navigate('/dashboard');
             };
         } catch (err) {
             console.error('Login failed:', err.response.data.message);

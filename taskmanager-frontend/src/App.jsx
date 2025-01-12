@@ -13,11 +13,12 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
+          <Route path='/' element={<Navigate to='/login' />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/forgot-password' element={<ForgotPass />}/>
-          <Route path='/' element={<PrivateRoute />}>
-            <Route path='/' element={<Dashboard />} />
+          <Route path='/dashboard' element={<PrivateRoute />}>
+            <Route path='/dashboard' element={<Dashboard />} />
           </Route>
         </Routes>
       </BrowserRouter>
