@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import ClipLoader from 'react-spinners/ClipLoader'
 import background from './assets/bg.jpg'
 import styles from './App.module.css'
 
@@ -8,6 +9,7 @@ import styles from './App.module.css'
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -31,13 +33,14 @@ function Login() {
         };
 
         try {
+            setIsLoading(true);
             const response = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/users/login`, { email, password });
-            if ( response ) {
-                localStorage.setItem('token', response.data.accessToken);
-                navigate('/dashboard');
-            };
+            localStorage.setItem('token', response.data.accessToken);
+            setIsLoading(false);
+            navigate('/dashboard');
         } catch (err) {
             console.error('Login failed:', err.response.data.message);
+            setIsLoading(false);
             alert(err.response.data.message);
         };
 
@@ -69,7 +72,13 @@ function Login() {
                     </div>
 
                     <div>
-                        <button type='submit' className={styles['login-button']}>Login</button>
+                        { isLoading ? 
+                        <ClipLoader 
+                        color='#d1d5db'
+                        loading={isLoading}
+                        size={25}
+                        /> :
+                        <button type='submit' className={styles['login-button']}>Login</button>}
                     </div>
 
                     <div className={styles['register-container']}>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import DatePicker from 'react-datepicker'
+import ClipLoader from 'react-spinners/ClipLoader'
 import myTasksStyles from '../MyTasks.module.css'
 import 'react-datepicker/dist/react-datepicker.css'
 import '../../App.css'
@@ -9,6 +10,7 @@ function TaskForm({ closeTaskForm, selectedDate }) {
     const [description, setDescription] = useState('');
     const [date, setDate] = useState(selectedDate); // date here is from setDate
     const [time, setTime] = useState(null); // time here is from setTime
+    const [isLoading, setIsLoading] = useState(false);
     const token = localStorage.getItem('token');
 
     const handleDateChange = (date) => { // date here is from DatePicker
@@ -38,11 +40,14 @@ function TaskForm({ closeTaskForm, selectedDate }) {
         };
         
         try {
+            setIsLoading(true);
             const response = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/tasks`, data, config);
             console.log(response.data);
+            setIsLoading(false);
             closeTaskForm();
         } catch (err) {
             console.error('Failed to create a task:', err.response.data.message);
+            setIsLoading(false);
         };
     };
 
@@ -83,7 +88,13 @@ function TaskForm({ closeTaskForm, selectedDate }) {
                     </div>
 
                     <div className='modal-form-buttons-container'>
-                        <button className={myTasksStyles.button} type='submit'>Create Task</button>
+                        { isLoading ?
+                        <ClipLoader 
+                        color='#576675'
+                        loading={isLoading}
+                        size={20}
+                        /> :
+                        <button className={myTasksStyles.button} type='submit'>Create Task</button>}
                     </div>
                 </form>
 

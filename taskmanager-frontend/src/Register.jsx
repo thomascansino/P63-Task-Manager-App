@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import ClipLoader from 'react-spinners/ClipLoader'
 import background from './assets/bg.jpg';
 import styles from './App.module.css'
 
@@ -9,6 +10,7 @@ function Register() {
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
     const [ confirmPassword, setConfirmPassword ] = useState('');
+    const [ isLoading, setIsLoading ] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -45,13 +47,14 @@ function Register() {
         };
 
         try {
+            setIsLoading(true);
             const response = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/users/register`, { username, email, password, confirmPassword });
-            if ( response ) {
-                alert('Register successful');
-                navigate('/login');
-            };
+            alert('Register successful');
+            setIsLoading(false);
+            navigate('/login');
         } catch (err) {
             console.error('Error registering:', err.response.data.message);
+            setIsLoading(false);
             alert(err.response.data.message);
         };
 
@@ -87,7 +90,13 @@ function Register() {
                 </div>
 
                 <div>
-                    <button type='submit' className={styles['login-button']}>Register</button>
+                    { isLoading ? 
+                    <ClipLoader 
+                    color='#d1d5db'
+                    loading={isLoading}
+                    size={25}
+                    /> :
+                    <button type='submit' className={styles['login-button']}>Register</button>}
                 </div>
 
                 <div>

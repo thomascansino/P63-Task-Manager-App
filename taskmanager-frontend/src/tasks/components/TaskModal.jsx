@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 import DatePicker from 'react-datepicker'
+import ClipLoader from 'react-spinners/ClipLoader'
 import myTasksStyles from '../MyTasks.module.css'
 import 'react-datepicker/dist/react-datepicker.css'
 import '../../App.css'
@@ -9,6 +10,8 @@ function TaskModal({ closeTaskModal, selectedTask }) {
     const [description, setDescription] = useState(selectedTask.description);
     const [date, setDate] = useState(new Date(selectedTask.date)); // date here is from setDate
     const [time, setTime] = useState(new Date(selectedTask.time)); // time here is from setTime
+    const [isEditTaskLoading, setIsEditTaskLoading] = useState(false);
+    const [isDeleteTaskLoading, setIsDeleteTaskLoading] = useState(false);
     const token = localStorage.getItem('token');
 
     const handleDateChange = (date) => { // date here is from DatePicker
@@ -38,8 +41,10 @@ function TaskModal({ closeTaskModal, selectedTask }) {
         };
 
         try {
+            setIsEditTaskLoading(true);
             const response = await axios.put(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/tasks/${selectedTask._id}`, data, config);
             console.log('Task updated:', response.data);
+            setIsEditTaskLoading(false);
             closeTaskModal();
         } catch (err) {
             console.error('Failed to update a task:', err.response.data.message);
@@ -48,11 +53,14 @@ function TaskModal({ closeTaskModal, selectedTask }) {
 
     const deleteTask = async () => {
         try {
+            setIsDeleteTaskLoading(true);
             const response = await axios.delete(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/api/tasks/${selectedTask._id}`, config);
             console.log('Task deleted:', response.data);
+            setIsDeleteTaskLoading(false);
             closeTaskModal();
         } catch (err) {
             console.error('Failed to delete a task:', err.response.data.message);
+            setIsDeleteTaskLoading(false);
         };
     };
 
@@ -88,8 +96,20 @@ function TaskModal({ closeTaskModal, selectedTask }) {
                     </div>
 
                     <div className='modal-form-buttons-container'>
-                        <button className={myTasksStyles.button} onClick={updateTask}>Modify Task</button>
-                        <button className={myTasksStyles.button} onClick={deleteTask}>Delete Task</button>
+                        { isEditTaskLoading ? 
+                        <ClipLoader 
+                        color='#576675'
+                        loading={isEditTaskLoading}
+                        size={20}
+                        /> :
+                        <button className={myTasksStyles.button} onClick={updateTask}>Modify Task</button>}
+                        { isDeleteTaskLoading ?
+                        <ClipLoader 
+                        color='#576675'
+                        loading={isDeleteTaskLoading}
+                        size={20}
+                        /> :
+                        <button className={myTasksStyles.button} onClick={deleteTask}>Delete Task</button>}
                     </div>
 
                 </div>
