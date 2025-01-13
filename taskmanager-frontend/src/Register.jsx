@@ -67,9 +67,9 @@ function Register() {
             
                 <div className={styles['slogan-container']}>
                     <div>
-                        <div>Manage Tasks</div>
-                        <div>Plan Ahead</div>
-                        <div>Stay on Schedule</div>
+                        <div className={styles['first-line']}>Manage Tasks,</div>
+                        <div>Plan Ahead,</div>
+                        <div className={styles['third-line']}>Stay on Schedule.</div>
                     </div>
                 </div>
                 
