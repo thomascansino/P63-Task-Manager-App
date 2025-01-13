@@ -137,19 +137,18 @@
   border: 2px solid hsla(0, 0%, 100%, .7);
   padding: 2rem 1rem;
   border-radius: 1rem;
-  position: relative;
   backdrop-filter: blur(16px) brightness(0.95);
   text-align: center;
   color: #ffffff;
   max-width: 400px;
   width: 100%;
-  height: fit-content;
   box-sizing: border-box;
+  display: grid;
+  row-gap: 1rem;
 }
 
 .title-container {
   font-size: 25.888px;
-  margin-bottom: 1rem;
 }
 
 .input-container {
@@ -158,21 +157,17 @@
   border-radius: 4rem;
   display: grid;
   align-items: center;
-  column-gap: .75rem;
   grid-template-columns: 1fr max-content;
-  margin-bottom: 1rem;
 }
 
 .forgot-pass-container {
   font-size: 9.888px;
-  margin-bottom: 1rem;
 }
 
 .login-button {
   cursor: pointer;
   background-color: #ffffff;
   padding: 1rem;
-  margin-bottom: 1rem;
   border-radius: 4rem;
   font-weight: 500;
   color: #000000;
