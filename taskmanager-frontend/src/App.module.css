@@ -1,17 +1,105 @@
+.parent-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  background-color: #374151;
+}
+
+@media (max-width: 767px) {
+  .parent-container {
+    padding: 16px;
+  }
+  .document-container {
+    grid-template-rows: 1fr 1fr;
+  } 
+  .slogan-container {
+    font-size: 39px;
+    text-align: center;
+  }
+  .login-bg {
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+  }
+}
+
+@media (max-width: 1023px) and (min-width: 768px) {
+  .parent-container {
+    padding: 48px;
+  }
+  .document-container {
+    grid-template-columns: 1fr 1fr;
+  } 
+  .slogan-container {
+    font-size: 39px;
+  }
+  .login-bg {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .parent-container {
+    padding: 48px 96px;
+  }
+  .document-container {
+    grid-template-columns: 1fr 1fr;
+  }  
+  .slogan-container {
+      font-size: 48px;
+  }
+  .login-bg {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
+}
+
+.login-bg-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .login-bg {
-    position: absolute;
-    object-fit: cover;
-    object-position: center;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.document-container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  box-sizing: border-box;
+  background-color: #1f2c37;
+  border-radius: 12px;
+  box-shadow: 0 0 20px -5px #fff9e3;
+}
+
+.slogan-container {
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 16px;
 }
 
 .container {
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+  padding: 16px;
 }
 
 .main-container {
@@ -25,6 +113,7 @@
   color: #ffffff;
   max-width: 400px;
   width: 100%;
+  height: fit-content;
   box-sizing: border-box;
 }
 

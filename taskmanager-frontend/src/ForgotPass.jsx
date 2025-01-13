@@ -11,38 +11,51 @@ function ForgotPass() {
     }, []);
 
     return (
-        <>
-            <img className={styles['login-bg']} src={background} alt='cool backdrop' />
+        <div className={styles['parent-container']}>  
             
-            <form className={styles['container']}>
-                <div className={styles['main-container']}>
-
-                    <div className={styles['title-container']}>
-                        <span className={styles.bold}>Forgot Password?</span>
+            <div className={styles['document-container']}>
+            
+                <div className={styles['slogan-container']}>
+                    <div>
+                        <div>Manage Tasks</div>
+                        <div>Plan Ahead</div>
+                        <div>Stay on Schedule</div>
+                    </div>
+                </div>
+                
+                <form className={styles['container']}>
+                    <div className={styles['login-bg-container']}>
+                        <img className={styles['login-bg']} src={background} alt='cool backdrop' />
                     </div>
                     
-                    <div className={styles['input-container']}>
-                        <input type='email' placeholder='Email ID' className={styles['login-input']} />
-                        <i className="ri-mail-line"></i>
-                    </div>
+                    <div className={styles['main-container']}>
 
-                    <div>
-                        <button type='submit' className={styles['login-button']}>Next</button>
-                    </div>
+                        <div className={styles['title-container']}>
+                            <span className={styles.bold}>Forgot Password?</span>
+                        </div>
+                        
+                        <div className={styles['input-container']}>
+                            <input type='email' placeholder='Email ID' className={styles['login-input']} />
+                            <i className="ri-mail-line"></i>
+                        </div>
 
-                    <div className={styles['register-container']}>
-                        <span>Don't have an account? <Link to='/register'><span className={styles['lighter-bold']}>Register</span></Link></span>
-                    </div>
+                        <div>
+                            <button type='submit' className={styles['login-button']}>Next</button>
+                        </div>
 
-                    <div>
-                        <Link to='/login'>
-                            <span className={styles['lighter-bold']} style={{fontSize: '9.888px'}}>Go back to login page</span>
-                        </Link>
-                    </div>
+                        <div className={styles['register-container']}>
+                            <span>Don't have an account? <Link to='/register'><span className={styles['lighter-bold']}>Register</span></Link></span>
+                        </div>
 
-                </div>
-            </form>
-        </>
+                        <div>
+                            <Link to='/login'>
+                                <span className={styles['lighter-bold']} style={{fontSize: '9.888px'}}>Go back to login page</span>
+                            </Link>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     )
 };
 

@@ -107,3 +107,7 @@ input {
     flex-direction: column;
     gap: 16px;
 }
+
+.shadow {
+    box-shadow: 0 0 20px -5px #fff9e3;
+}

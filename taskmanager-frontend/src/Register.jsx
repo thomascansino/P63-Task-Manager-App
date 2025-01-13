@@ -61,53 +61,69 @@ function Register() {
     };
 
     return (
-        <>
-            <img className={styles['login-bg']} src={background} alt='cool backdrop' />
+        <div className={styles['parent-container']}>
             
-            <form onSubmit={handleRegister} className={styles['container']}>
-                <div className={styles['main-container']}>
+            <div className={styles['document-container']}>
+            
+                <div className={styles['slogan-container']}>
+                    <div>
+                        <div>Manage Tasks</div>
+                        <div>Plan Ahead</div>
+                        <div>Stay on Schedule</div>
+                    </div>
+                </div>
                 
-                <div className={styles['title-container']}><span className={styles['bold']}>Register</span></div>
-                
-                <div className={styles['input-container']}>
-                    <input type='text' placeholder='Username' value={username} onChange={handleUsername} className={styles['login-input']} />
-                    <i className='ri-user-line'></i>
-                </div>
+                <form onSubmit={handleRegister} className={styles['container']}>
+                    <div className={styles['login-bg-container']}>
+                        <img className={styles['login-bg']} src={background} alt='cool backdrop' />
+                    </div>
+                    
+                    <div className={styles['main-container']}>
+                    
+                        <div className={styles['title-container']}>
+                            <span className={styles['bold']}>Register</span>
+                        </div>
+                        
+                        <div className={styles['input-container']}>
+                            <input type='text' placeholder='Username' value={username} onChange={handleUsername} className={styles['login-input']} />
+                            <i className='ri-user-line'></i>
+                        </div>
 
-                <div className={styles['input-container']}>
-                    <input type='email' placeholder='Email ID' value={email} onChange={handleEmail} className={styles['login-input']} />
-                    <i className="ri-mail-line"></i>
-                </div>
+                        <div className={styles['input-container']}>
+                            <input type='email' placeholder='Email ID' value={email} onChange={handleEmail} className={styles['login-input']} />
+                            <i className="ri-mail-line"></i>
+                        </div>
 
-                <div className={styles['input-container']}>
-                    <input type='password' placeholder='Password' value={password} onChange={handlePassword} className={styles['login-input']} />
-                    <i className="ri-lock-2-line"></i>
-                </div>
+                        <div className={styles['input-container']}>
+                            <input type='password' placeholder='Password' value={password} onChange={handlePassword} className={styles['login-input']} />
+                            <i className="ri-lock-2-line"></i>
+                        </div>
 
-                <div className={styles['input-container']}>
-                    <input type='password' placeholder='Confirm Password' value={confirmPassword} onChange={handleConfirmPassword} className={styles['login-input']} />
-                    <i className="ri-lock-2-line"></i>
-                </div>
+                        <div className={styles['input-container']}>
+                            <input type='password' placeholder='Confirm Password' value={confirmPassword} onChange={handleConfirmPassword} className={styles['login-input']} />
+                            <i className="ri-lock-2-line"></i>
+                        </div>
 
-                <div>
-                    { isLoading ? 
-                    <ClipLoader 
-                    color='#d1d5db'
-                    loading={isLoading}
-                    size={25}
-                    /> :
-                    <button type='submit' className={styles['login-button']}>Register</button>}
-                </div>
+                        <div>
+                            { isLoading ? 
+                            <ClipLoader 
+                            color='#d1d5db'
+                            loading={isLoading}
+                            size={25}
+                            /> :
+                            <button type='submit' className={styles['login-button']}>Register</button>}
+                        </div>
 
-                <div>
-                    <Link to='/login'>
-                    <span className={styles['lighter-bold']} style={{fontSize: '9.888px'}}>Go back to login page</span>
-                    </Link>
-                </div>
+                        <div>
+                            <Link to='/login'>
+                            <span className={styles['lighter-bold']} style={{fontSize: '9.888px'}}>Go back to login page</span>
+                            </Link>
+                        </div>
 
-                </div>
-            </form>
-        </>
+                    </div>
+                </form>
+            </div>
+        </div>
     );
 };
 
